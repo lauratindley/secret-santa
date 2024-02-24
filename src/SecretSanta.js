@@ -1,8 +1,27 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import React, { useState } from "react";
+import Pairs from "./Pairs";
 import "./SecretSanta.css";
 
 export default function SecretSanta() {
+  const [playerList, setPlayerList] = useState("");
+
+  function createPairs() {
+    setPlayerList({
+      player1: "Laura Tindley",
+      player2: "Lucy Scaramanaga",
+      player3: "Sarah Parry-Jones",
+      player4: "Katie Worthington",
+      player5: "Sam Dickinson",
+      player6: "Steve Long",
+    });
+  }
+
+  function handleClick(event) {
+    event.preventDefault();
+    createPairs();
+  }
+
   return (
     <div className="nameList">
       <h1>Secret Santa 🎅</h1>
@@ -35,9 +54,14 @@ export default function SecretSanta() {
           </li>
         </ul>
       </form>
-      <button type="button" class="btn btn-danger m-4">
+      <button
+        type="button"
+        className="btn btn-danger m-4"
+        onClick={handleClick}
+      >
         Create pairs
       </button>
+      <Pairs data={playerList} />;
     </div>
   );
 }
