@@ -6,20 +6,20 @@ import "./SecretSanta.css";
 export default function SecretSanta() {
   const [playerList, setPlayerList] = useState("");
 
-  function createPairs() {
-    setPlayerList({
-      player1: "Laura Tindley",
-      player2: "Lucy Scaramanaga",
-      player3: "Sarah Parry-Jones",
-      player4: "Katie Worthington",
-      player5: "Sam Dickinson",
-      player6: "Steve Long",
-    });
+  function createList() {
+    setPlayerList([
+      "Laura Tindley",
+      "Lucy Scaramanaga",
+      "Sarah Parry-Jones",
+      "Katie Worthington",
+      "Sam Dickinson",
+      "Steve Long",
+    ]);
   }
 
   function handleClick(event) {
     event.preventDefault();
-    createPairs();
+    createList();
   }
 
   return (
@@ -59,7 +59,7 @@ export default function SecretSanta() {
         className="btn btn-danger m-4"
         onClick={handleClick}
       >
-        Create pairs
+        Find your match!
       </button>
       <Pairs data={playerList} />;
     </div>
