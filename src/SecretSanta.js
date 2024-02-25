@@ -56,7 +56,7 @@ export default function SecretSanta() {
       </form>
       <button
         type="button"
-        className="btn btn-danger m-4"
+        className="btn btn-danger mt-3 mb-5"
         onClick={handleClick}
       >
         Find your match!

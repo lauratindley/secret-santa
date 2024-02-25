@@ -19,7 +19,7 @@ export default function Pairs(props, index) {
         names[currentIndex],
       ];
     }
-    return names;
+    return names.slice();
   }
 
   const playerListShuffled = shuffle(playerList);
@@ -28,6 +28,7 @@ export default function Pairs(props, index) {
   return (
     <div className="row">
       <div className="col-6">
+        <th>Your Name</th>
         <ul>
           {playerList.map(function (element, index) {
             return <li key={index}>{element}</li>;
@@ -35,6 +36,7 @@ export default function Pairs(props, index) {
         </ul>
       </div>
       <div className="col-6">
+        <th>Your Secret Santa!</th>
         <ul>
           {playerListShuffled.map(function (element, index) {
             return <li key={index}>{element}</li>;
