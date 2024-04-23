@@ -4,18 +4,28 @@ import Pairs from "./Pairs";
 import "./SecretSanta.css";
 
 export default function SecretSanta() {
-  const [playerList, setPlayerList] = useState("");
+  const [playerList, setPlayerList] = useState([]);
 
   function createList() {
     setPlayerList([
       "Laura Tindley",
-      "Lucy Scaramanaga",
+      "Lucy Scaramanga",
       "Sarah Parry-Jones",
       "Katie Worthington",
       "Sam Dickinson",
       "Steve Long",
     ]);
   }
+
+  // React.useEffect(() => {
+  //   const intervalRef = setInterval(() => {
+  //     console.log("SecretSanta", playerList);
+  //   }, 1000 * 10);
+
+  //   return () => {
+  //     clearInterval(intervalRef);
+  //   };
+  // }, [playerList]);
 
   function handleClick(event) {
     event.preventDefault();

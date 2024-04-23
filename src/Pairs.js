@@ -1,13 +1,9 @@
-import React, { useState } from "react";
-//import "react-data-grid/lib/styles.css";
-//import DataGrid from "react-data-grid";
+import "bootstrap/dist/css/bootstrap.css";
+import React from "react";
+import "react-data-grid/lib/styles.css";
+import DataGrid from "react-data-grid";
 
 export default function Pairs(props, index) {
-  //const [players, setPlayers] = useState("");
-
-  const playerList = props.data;
-  console.log(playerList);
-
   function shuffle(names) {
     let currentIndex = names.length,
       randomIndex;
@@ -21,12 +17,34 @@ export default function Pairs(props, index) {
     }
     return names.slice();
   }
+  const playerList = props.data;
+  console.log(playerList);
 
-  const playerListShuffled = shuffle(playerList);
+  const copyOfList = playerList.slice();
+  const playerListShuffled = shuffle(copyOfList);
   console.log(playerListShuffled);
 
+  const columns = [
+    { key: "id", name: "Your name" },
+    { key: "title", name: "Your Secret Santa" },
+  ];
+
+  const rows = playerList.map(function (element, index) {
+    return {
+      id: element,
+      title: playerListShuffled[index],
+    };
+  });
+  console.log("rows", rows);
+
   return (
-    <div className="row">
+    <div>
+      <DataGrid columns={columns} rows={rows} />
+    </div>
+  );
+}
+
+/*<div className="row">
       <div className="col-6">
         <th>Your Name</th>
         <ul>
@@ -44,18 +62,27 @@ export default function Pairs(props, index) {
         </ul>
       </div>
     </div>
-  );
-}
 
-/*
- const columns = [
-    { key: "your-name", name: "Your Name" },
-    { key: "secret-name", name: "Your Secret Santa!" },
-  ];
-  const rows = [
-    { id: 0, title: "Example" },
-    { id: 1, title: "Demo" },
-  ];
-  */
 
-//   <DataGrid columns={columns} rows={rows} />;
+
+<div className="col-6">
+        <th>Your Name</th>
+        <ul className="result-names">
+          {playerList.map(function (element, index) {
+            return <li key={index}>{element}</li>;
+          })}
+        </ul>
+      </div>
+      <div className="col-6">
+        <th>Your Secret Santa!</th>
+        <ul className="result-names">
+          {playerListShuffled.map(function (element, index) {
+            return <li key={index}>{element}</li>;
+          })}
+        </ul>
+      </div>
+
+
+
+
+    */
