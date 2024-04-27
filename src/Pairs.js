@@ -35,7 +35,6 @@ export default function Pairs(props, index) {
       title: playerListShuffled[index],
     };
   });
-  console.log("rows", rows);
 
   return (
     <div>

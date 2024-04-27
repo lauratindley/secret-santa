@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useState } from "react";
 import Pairs from "./Pairs";
+import Checklist from "./Checklist";
+
 import "./SecretSanta.css";
 
 export default function SecretSanta() {
@@ -17,16 +19,6 @@ export default function SecretSanta() {
     ]);
   }
 
-  // React.useEffect(() => {
-  //   const intervalRef = setInterval(() => {
-  //     console.log("SecretSanta", playerList);
-  //   }, 1000 * 10);
-
-  //   return () => {
-  //     clearInterval(intervalRef);
-  //   };
-  // }, [playerList]);
-
   function handleClick(event) {
     event.preventDefault();
     createList();
@@ -37,32 +29,7 @@ export default function SecretSanta() {
       <h1>Secret Santa 🎅</h1>
       <p>Who wants to join the Secret Santa this year?</p>
       <form>
-        <ul className="names">
-          <li>
-            <input type="checkbox" id="lauraT" className="name"></input>
-            <label className="name">Laura Tindley</label>
-          </li>
-          <li>
-            <input type="checkbox" id="lucyS" className="name"></input>
-            <label className="name">Lucy Scaramanga</label>
-          </li>
-          <li>
-            <input type="checkbox" id="sarahPJ" className="name"></input>
-            <label className="name">Sarah Parry-Jones</label>
-          </li>
-          <li>
-            <input type="checkbox" id="katieW" className="name"></input>
-            <label className="name">Katie Worthington</label>
-          </li>
-          <li>
-            <input type="checkbox" id="samD" className="name"></input>
-            <label className="name">Sam Dickinson</label>
-          </li>
-          <li>
-            <input type="checkbox" id="SteveL" className="name"></input>
-            <label className="name">Steve Long</label>
-          </li>
-        </ul>
+        <Checklist />
       </form>
       <button
         type="button"
@@ -75,3 +42,11 @@ export default function SecretSanta() {
     </div>
   );
 }
+
+/* const getDefaultCheckboxes = checkboxesList.map(function (name, index) {
+    return {
+      id: name,
+      checked: false,
+      key: index,
+    };
+  }); */
